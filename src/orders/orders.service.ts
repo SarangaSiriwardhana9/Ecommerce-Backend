@@ -53,7 +53,7 @@ export class OrdersService {
       const product = await this.productsService.findById(String(item.productId));
       const variant = product.variants.find((v) => v.variantId === item.variantId)!;
       variant.stock -= item.quantity;
-      await this.productsService.update(String(product._id), {
+      await this.productsService.update(String(item.productId), {
         variants: product.variants as any,
       } as any);
     }
