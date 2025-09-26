@@ -45,5 +45,3 @@ export class Discount {
 }
 
 export const DiscountSchema = SchemaFactory.createForClass(Discount);
-
-

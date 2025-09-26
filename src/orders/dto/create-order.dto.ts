@@ -1,5 +1,12 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { IsEmail, IsNotEmpty, IsOptional, IsPhoneNumber, IsString, ValidateNested } from 'class-validator';
+import {
+  IsEmail,
+  IsNotEmpty,
+  IsOptional,
+  IsPhoneNumber,
+  IsString,
+  ValidateNested,
+} from 'class-validator';
 import { Type } from 'class-transformer';
 
 class AddressDto {
@@ -21,5 +28,3 @@ export class CreateOrderDto {
   @ApiPropertyOptional() @IsString() @IsOptional() notes?: string;
   @ApiPropertyOptional() @IsEmail() @IsOptional() email?: string;
 }
-
-

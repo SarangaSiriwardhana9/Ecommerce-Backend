@@ -76,7 +76,12 @@ export class OrdersService {
     return order.toObject();
   }
 
-  async updateStatus(id: string, status: OrderStatus, trackingNumber?: string, internalNotes?: string) {
+  async updateStatus(
+    id: string,
+    status: OrderStatus,
+    trackingNumber?: string,
+    internalNotes?: string,
+  ) {
     const updated = await this.orderModel
       .findByIdAndUpdate(
         id,
@@ -92,5 +97,3 @@ export class OrdersService {
     return this.orderModel.find().sort({ createdAt: -1 }).lean();
   }
 }
-
-

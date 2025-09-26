@@ -37,5 +37,3 @@ export class DiscountsService {
     return true;
   }
 }
-
-

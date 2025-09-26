@@ -36,5 +36,3 @@ export class Review {
 }
 
 export const ReviewSchema = SchemaFactory.createForClass(Review);
-
-

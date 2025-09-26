@@ -29,9 +29,7 @@ export class VariantAttributes {
   material: string;
 }
 
-export const VariantAttributesSchema = SchemaFactory.createForClass(
-  VariantAttributes,
-);
+export const VariantAttributesSchema = SchemaFactory.createForClass(VariantAttributes);
 
 @Schema({ _id: true, versionKey: false })
 export class ProductVariant {
@@ -92,5 +90,3 @@ export class Product {
 export const ProductSchema = SchemaFactory.createForClass(Product);
 
 ProductSchema.index({ title: 'text', mainDescription: 'text', tags: 'text' });
-
-

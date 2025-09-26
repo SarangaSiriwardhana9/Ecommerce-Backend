@@ -34,5 +34,3 @@ export class ReviewsController {
     return this.reviewsService.aggregateRating(productId);
   }
 }
-
-

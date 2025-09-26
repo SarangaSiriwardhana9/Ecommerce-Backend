@@ -11,5 +11,3 @@ import { EventLog, EventLogSchema } from './schemas/event-log.schema';
   exports: [AnalyticsService],
 })
 export class AnalyticsModule {}
-
-

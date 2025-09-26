@@ -29,8 +29,7 @@ export class CartService {
     const product = await this.productsService.findById(dto.productId);
     const variant = product.variants.find((v) => v.variantId === dto.variantId);
     if (!variant) throw new BadRequestException('Variant not found');
-    if (dto.quantity > variant.stock)
-      throw new BadRequestException('Quantity exceeds stock');
+    if (dto.quantity > variant.stock) throw new BadRequestException('Quantity exceeds stock');
 
     const price = variant.price ?? product.price;
     const update = await this.cartModel.findOneAndUpdate(
@@ -125,5 +124,3 @@ export class CartService {
     return { ...cart, items: Array.from(map.values()) };
   }
 }
-
-

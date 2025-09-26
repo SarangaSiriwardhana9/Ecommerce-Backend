@@ -7,9 +7,7 @@ import { UpdateProductDto } from './dto/update-product.dto';
 
 @Injectable()
 export class ProductsService {
-  constructor(
-    @InjectModel(Product.name) private readonly productModel: Model<ProductDocument>,
-  ) {}
+  constructor(@InjectModel(Product.name) private readonly productModel: Model<ProductDocument>) {}
 
   async create(dto: CreateProductDto): Promise<Product> {
     const hasMain = dto.images?.some((i) => i.isMain) ?? false;
@@ -33,9 +31,7 @@ export class ProductsService {
     if (dto.categoryIds) {
       (dto as any).categoryIds = dto.categoryIds.map((cid) => new Types.ObjectId(cid));
     }
-    const updated = await this.productModel
-      .findByIdAndUpdate(id, dto, { new: true })
-      .lean();
+    const updated = await this.productModel.findByIdAndUpdate(id, dto, { new: true }).lean();
     if (!updated) throw new NotFoundException('Product not found');
     return updated;
   }
@@ -65,17 +61,7 @@ export class ProductsService {
     limit?: number;
     sort?: 'price_asc' | 'price_desc' | 'newest';
   }) {
-    const {
-      q,
-      categoryId,
-      minPrice,
-      maxPrice,
-      size,
-      color,
-      page = 1,
-      limit = 20,
-      sort,
-    } = params;
+    const { q, categoryId, minPrice, maxPrice, size, color, page = 1, limit = 20, sort } = params;
     const filter: FilterQuery<ProductDocument> = { archived: false };
 
     if (q) {
@@ -122,5 +108,3 @@ export class ProductsService {
     return { items, total, page, limit };
   }
 }
-
-

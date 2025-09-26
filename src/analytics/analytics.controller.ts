@@ -12,5 +12,3 @@ export class AnalyticsController {
     return this.analyticsService.record(req.sessionId, body.type as any, body.payload || {});
   }
 }
-
-

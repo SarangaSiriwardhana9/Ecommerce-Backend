@@ -24,9 +24,7 @@ import { AppService } from './app.service';
     }),
     MongooseModule.forRootAsync({
       useFactory: () => ({
-        uri:
-          process.env.MONGODB_URI ||
-          'mongodb://localhost:27017/ecommerce-backend',
+        uri: process.env.MONGODB_URI || 'mongodb://localhost:27017/ecommerce-backend',
       }),
     }),
     ProductsModule,

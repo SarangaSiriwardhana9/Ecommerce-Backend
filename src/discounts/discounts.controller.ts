@@ -23,5 +23,3 @@ export class DiscountsController {
     return this.discountsService.findByCode(code);
   }
 }
-
-

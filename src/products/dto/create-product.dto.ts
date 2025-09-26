@@ -129,5 +129,3 @@ export class CreateProductDto {
   @IsOptional()
   discountPrice?: number;
 }
-
-

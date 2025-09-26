@@ -11,5 +11,3 @@ import { DiscountsController } from './discounts.controller';
   exports: [DiscountsService],
 })
 export class DiscountsModule {}
-
-

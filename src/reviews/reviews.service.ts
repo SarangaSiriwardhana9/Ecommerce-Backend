@@ -35,9 +35,7 @@ export class ReviewsService {
   }
 
   async moderate(id: string, status: 'pending' | 'approved' | 'rejected') {
-    const updated = await this.reviewModel
-      .findByIdAndUpdate(id, { status }, { new: true })
-      .lean();
+    const updated = await this.reviewModel.findByIdAndUpdate(id, { status }, { new: true }).lean();
     if (!updated) throw new NotFoundException('Review not found');
     return updated;
   }
@@ -59,5 +57,3 @@ export class ReviewsService {
     return { average: avg, count };
   }
 }
-
-

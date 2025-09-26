@@ -37,5 +37,3 @@ export class CartController {
     return this.cartService.removeItem(req.sessionId, productId, variantId);
   }
 }
-
-

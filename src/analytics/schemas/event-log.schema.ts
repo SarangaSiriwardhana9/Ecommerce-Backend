@@ -18,5 +18,3 @@ export class EventLog {
 }
 
 export const EventLogSchema = SchemaFactory.createForClass(EventLog);
-
-
